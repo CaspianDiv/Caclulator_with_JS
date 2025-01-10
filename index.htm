@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>iPhone | Calculator | with | JS</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+        <style>
+            :root{
+                --orange: #FF9F0A;
+                --gray:#5C5C5F;
+                --darkgray:#2A2A2C;
+            }
+            body{background: #000;}
+            #calculator{display: table; margin: 100px auto; 
+                padding: 20px 30px; box-shadow: 0 0 15px #eee; border-radius: 30px;}
+            #display,button{outline: none;}
+            button{cursor: pointer; width: 60px; height: 60px; border: none; font-size: 1.5em; padding: 5px; margin: 5px; border-radius: 50%;}
+            button:active{box-shadow: 0 0 5px #fff;
+             background: #ffffffa4;}
+            #display{width: 270px; padding: 10px; text-align: right; font-size: 3em; background: none; color: #fff; border: none;}
+            .darkgray{
+                background: var(--darkgray);
+                color: #fff;
+            }
+            .orange{
+                background: var(--orange);
+                color: #fff;
+            }
+            #img{background: var(--darkgray) url('img/calc.png')center/contain;
+                padding: 30px 10px;
+                    }
+        </style>
+    </head>
+    <body>
+         <div id="calculator">
+            <input type="text" id="display" readonly="readonly"/>
+            <div>
+                <button onclick="clean()" class="gray">ac</button>
+                <button onclick="show('+/-')" class="gray">+/-</button>
+                <button onclick="show('%')" class="gray">%</button>
+                <button onclick="show('/')" class="orange">÷</button>
+            </div>
+            <div>
+                <button onclick="show('7')" class="darkgray">7</button>
+                <button onclick="show('8')" class="darkgray">8</button>
+                <button onclick="show('9')" class="darkgray">9</button>
+                <button onclick="show('*')" class="orange">×</button>
+            </div>
+            <div>
+                <button onclick="show('4')" class="darkgray">4</button>
+                <button onclick="show('5')" class="darkgray">5</button>
+                <button onclick="show('6')" class="darkgray">6</button>
+                <button onclick="show('-')" class="orange">-</button>
+            </div>
+            <div>
+                <button onclick="show('1')" class="darkgray">1</button>
+                <button onclick="show('2')" class="darkgray">2</button>
+                <button onclick="show('3')" class="darkgray">3</button>
+                <button onclick="show('+')" class="orange">+</button>
+            </div>
+            <div>
+                <button id="img" class="darkgray"></button>
+                <button onclick="show('0')" class="darkgray">0</button>
+                <button onclick="show('.')" class="darkgray">.</button>
+                <button onclick="hesabla()" class="orange">=</button>
+            </div>
+         </div>
+
+         <script>
+            const display = document.getElementById('display');
+
+            function show(x){
+                display.value = display.value + x
+            }
+            function clean(){
+                display.value = '';
+            }
+            function hesabla(){
+                display.value = eval(display.value)
+            }
+         </script>
+    </body>
+</html>
